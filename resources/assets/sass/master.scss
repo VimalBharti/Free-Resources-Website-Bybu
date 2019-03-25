@@ -898,3 +898,31 @@
   }
 
 }
+
+
+
+/*
+*===============*
+    JSON BOND
+*===============*
+*/
+.jsonbond-homepage{
+  .menu-bar-top{
+    text-align: center;line-height: 60px;
+    background-color: #f7f7f7;
+    li{
+      display: inline-block;
+    }
+    a{color:#444;font-size: 1em;padding: 1rem 2rem;font-weight: 600;}
+    .beta-icon{position: absolute;top: 0;right: 0;img{width: 60px;}}
+  }
+  .center-heading{
+    text-align: center;
+    h1{font-size: 4em;}
+    h2{font-size: 1.2rem;text-transform: uppercase;letter-spacing: 18px;}
+  }
+
+  .patreon-list-container{
+    text-align: center;align-items: center;
+  }
+}

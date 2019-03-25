@@ -27,6 +27,6 @@
     <!-- <div class="footer-text">
       <h1>Free Live, Free Learn, Free Give, Free Get </h1>
     </div> -->
-    <p class="foot-p">Handcrafted by me &copy; bybu.cc</p>
+    <p class="foot-p">Handcrafted by <a href="https://github.com/VimalBharti">me</a> &copy; bybu.cc</p>
   </div>
 </footer>

@@ -15,11 +15,14 @@
         <div class="navbar-end">
           @if (Auth::guest())
 
+            <a href="{{route('jsonbond.index')}}" class="navbar-item showcase-btn">
+              <span><i class="fa fa-database"></i> JasonBond</span>
+            </a>
             <a href="{{route('showcase.dash')}}" class="navbar-item showcase-btn">
-              <span>Showcase</span>
+              <span><i class="fa fa-columns"></i> Showcase</span>
             </a>
             <a class="navbar-item login-btn" href="{{url('/login')}}">
-                <span>Login</span>
+                <span><i class="fa fa-sign-in"></i> Login</span>
             </a>
           @else
             <a href="{{route('showcase.dash')}}" class="navbar-item">

@@ -28,6 +28,15 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('showcase/me', 'ShowcaseController');
 });
 
+// JSON BOND
+Route::get('/jsonbond', 'JsonbondController@index')->name('jsonbond.index');
+Route::get('/jsonbond/users', 'JsonbondController@userIndex')->name('jsonbond.users');
+Route::get('/jsonbond/posts', 'JsonbondController@userPost')->name('jsonbond.posts');
+Route::get('/jsonbond/albums', 'JsonbondController@userAlbum')->name('jsonbond.albums');
+Route::get('/jsonbond/comments', 'JsonbondController@userComment')->name('jsonbond.comments');
+Route::get('/jsonbond/testimonials', 'JsonbondController@userTestominal')->name('jsonbond.testimonials');
+Route::get('/jsonbond/properties', 'JsonbondController@userProperty')->name('jsonbond.properties');
+
 // Pgaes
 Route::get('/about', 'HomeController@about');
 Route::get('/terms', 'HomeController@terms');
