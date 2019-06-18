@@ -20,6 +20,19 @@ class JsonbondController extends Controller
       $users = Jsonusers::all();
       return Response::make(json_encode($users, JSON_PRETTY_PRINT))->header('Content-Type', "application/json");
     }
+    public function postUser(Request $request)
+    {
+      $user = new User;
+
+      $user->name = $request->name;
+      $user->username = $request->username;
+      $user->email = $request->email;
+      $user->address = $request->address;
+      $user->phone = $request->phone;
+
+      $user->save();
+      return redirect()->back();
+    }
 
     public function userPost()
     {

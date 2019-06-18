@@ -30,7 +30,10 @@ Route::group(['middleware' => 'auth'], function(){
 
 // JSON BOND
 Route::get('/jsonbond', 'JsonbondController@index')->name('jsonbond.index');
+
+Route::post('/jsonbond/users', 'JsonbondController@postUser')->name('jsonbond.postusers');
 Route::get('/jsonbond/users', 'JsonbondController@userIndex')->name('jsonbond.users');
+
 Route::get('/jsonbond/posts', 'JsonbondController@userPost')->name('jsonbond.posts');
 Route::get('/jsonbond/albums', 'JsonbondController@userAlbum')->name('jsonbond.albums');
 Route::get('/jsonbond/comments', 'JsonbondController@userComment')->name('jsonbond.comments');

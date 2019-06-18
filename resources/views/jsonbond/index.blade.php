@@ -59,7 +59,7 @@
               <p class="subtitle">10 Users</p>
               <div class="tags has-addons">
                 <span class="tag is-primary">GET</span>
-                <span class="tag">http://127.0.0.1:8000/jsonbond/users</span>
+                <span class="tag">https://www.bybu.cc/jsonbond/users</span>
                 <span class="tag is-dark">
                   <a href="{{route('jsonbond.users')}}" style="color:#fff;"><i class="fas fa-external-link-alt"></i></a>
                 </span>
@@ -89,7 +89,7 @@
               <p class="subtitle">20 Posts</p>
               <div class="tags has-addons">
                 <span class="tag is-primary">GET</span>
-                <span class="tag">http://127.0.0.1:8000/jsonbond/posts</span>
+                <span class="tag">https://www.bybu.cc/jsonbond/posts</span>
                 <span class="tag is-dark">
                   <a href="{{route('jsonbond.posts')}}" style="color:#fff;">
                     <i class="fas fa-external-link-alt"></i></a>
@@ -119,7 +119,7 @@
               <p class="subtitle">20 Album</p>
               <div class="tags has-addons">
                 <span class="tag is-primary">GET</span>
-                <span class="tag">http://127.0.0.1:8000/jsonbond/albums</span>
+                <span class="tag">https://www.bybu.cc/jsonbond/albums</span>
                 <span class="tag is-dark">
                   <a href="{{route('jsonbond.albums')}}" style="color:#fff;">
                     <i class="fas fa-external-link-alt"></i></a>
@@ -151,7 +151,7 @@
               <p class="subtitle">50 Comments</p>
               <div class="tags has-addons">
                 <span class="tag is-primary">GET</span>
-                <span class="tag">http://127.0.0.1:8000/jsonbond/comments</span>
+                <span class="tag">https://www.bybu.cc/jsonbond/comments</span>
                 <span class="tag is-dark">
                   <a href="{{route('jsonbond.comments')}}" style="color:#fff;">
                     <i class="fas fa-external-link-alt"></i></a>
@@ -179,7 +179,7 @@
               <p class="subtitle">10 Posts</p>
               <div class="tags has-addons">
                 <span class="tag is-primary">GET</span>
-                <span class="tag">http://127.0.0.1:8000/jsonbond/testimonials</span>
+                <span class="tag">https://www.bybu.cc/jsonbond/testimonials</span>
                 <span class="tag is-dark">
                   <a href="{{route('jsonbond.testimonials')}}" style="color:#fff;">
                     <i class="fas fa-external-link-alt"></i></a>
@@ -211,7 +211,7 @@
               <p class="subtitle">20 Property</p>
               <div class="tags has-addons">
                 <span class="tag is-primary">GET</span>
-                <span class="tag">http://127.0.0.1:8000/jsonbond/properties</span>
+                <span class="tag">https://www.bybu.cc/jsonbond/properties</span>
                 <span class="tag is-dark">
                   <a href="{{route('jsonbond.properties')}}" style="color:#fff;">
                     <i class="fas fa-external-link-alt"></i></a>
