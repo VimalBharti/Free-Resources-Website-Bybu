@@ -38,7 +38,7 @@
       </nav>
 
       <div class="column is-12 showcase-area">
-
+        @if(count($showcases) == 1)
             @foreach($showcases as $showcase)
                 <div class="featured-image-box column is-5">
                     <a href="{{route('showcase.single', $showcase->slug)}}" target="_blank"><img src="/myshowcase/{{$showcase->image}}"></a>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             @endforeach
-
+        @else
             {!! Form::open(array('route' => 'me.store', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data', 'files' => true)) !!}
 
                 <div class="add-showcase">
@@ -70,6 +70,7 @@
                 </div>
 
             {!! Form::close() !!}
+        @endif
 
       </div>
 
