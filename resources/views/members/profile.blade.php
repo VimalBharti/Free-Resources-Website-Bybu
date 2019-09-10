@@ -5,19 +5,19 @@
 @section('content')
 
   <div class="plain-footer-container public-profile-page">
-    <div class="menu-bar">
-      @include('_partials.navbar')
-    </div>
 
-    <section class="with-plain-footer">
-      <div class="container is-fluid">
-        <div class="columns top-pad">
-          <div class="column is-4 left-sidebar">
+    @include('_partials.plainnavbar')
+
+    <v-container>
+      <!-- picture -->
+      <v-layout class="columns top-pad">
+
+        <v-flex md4 class="left-sidebar">
             <div class="left-sidebar-top">
               <img src="/avatar/{{$user->avatar}}">
               <h1>{{$user->name}}</h1>
               <h2>
-                {{$user->city}}
+                {{$user->city}},
                 @if(isset ($user->country_id))
                   {{$user->country->name}}
                 @endif
@@ -52,96 +52,82 @@
               <ul>
                 <li>
                   <span><i class="fa fa-map-marker fa-lg"></i> From:</span>
-                  <strong class="is-pulled-right">{{$user->city}}</strong>
+                  <span class="text-xs-right font-weight-bold ml-4">{{$user->city}}</span>
                 </li>
                 <li>
                   <span><i class="fa fa-globe"></i> Country:</span>
-                  <strong class="is-pulled-right">
+                  <span class="text-xs-right font-weight-bold ml-4">
                     @if(isset ($user->country_id))
                       {{$user->country->name}}
                     @else
                       <p>Not mentioned</p>
                     @endif
-                  </strong>
+                  </span>
                 </li>
                 <li>
                   <span><i class="fa fa-database"></i> Total Post:</span>
-                  <strong class="is-pulled-right">{{$post}}</strong>
+                  <span class="text-xs-right font-weight-bold ml-4">{{$post}}</span>
                 </li>
                 <li>
                   <span><i class="fa fa-heart"></i> Followers:</span>
-                  <strong class="is-pulled-right">{{$follower}}</strong>
+                  <span class="text-xs-right font-weight-bold ml-4">{{$follower}}</span>
                 </li>
               </ul>
             </div>
+        </v-flex>
+      <!-- end is-4 -->
 
-          </div>
-          <!-- end is-4 -->
+        <v-flex md8 class="center-bar white">
+          <div class="title ml-4 mt-4">All Posts</div>
+          <v-container fluid grid-list-md>
+            <v-layout row wrap class="all-post-list">
+              @foreach ($posts as $post)
+                <v-flex md4 class="single-post mb-4">
+                  <div class="card">
 
-          <div class="column is-8 center-bar">
+                    <a href="{{route('post.show', $post->slug)}}" target="_blank">
+                      <v-img
+                        src="/uploads/design/{{ $post->image }}"
+                        lazy-src="{{asset('images/lazy.png')}}"
+                        aspect-ratio="1.4"
+                        position="top center"
+                      ></v-img>
+                    </a>
 
-              <section>
-                <div class="columns is-multiline all-post-list">
-                  @foreach ($posts as $post)
-                    <div class="column is-4 single-post">
-                      <div class="card">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <a href="{{route('post.show', $post->slug)}}" target="_blank">
-                              <img src="/uploads/design/thumbs/{{ $post->image }}">
-                            </a>
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="user-small-image">
-                              <figure class="image is-24x24 user-image">
-                                <img src="/avatar/{{$post->user_image}}" class="is-rounded">
-                              </figure>
-                            </div>
-                            <div class="media-content">
-                              <a href="#"><p class="title is-5">{{$post->user_name}}</p></a>
-                            </div>
-                            <div class="delete-btn">
+                    <div class="card-content">
+                      <div class="subheading my-2">{{$post->title}}</div>
 
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            @if(isset($post->psd))
-                              <a class="button is-primary is-outlined">PSD</a>
-                            @else
-                              <a class="button is-static">PSD</a>
-                            @endif
-                            @if(isset($post->coding))
-                              <a class="button is-primary is-outlined">{{$post->framework}}</a>
-                            @else
-                              <a class="button is-static">HTML</a>
-                            @endif
-                            @if(isset($post->css))
-                              <a class="button is-primary is-outlined">CSS</a>
-                            @else
-                              <a class="button is-static">CSS</a>
-                            @endif
-                          </div>
-
-                        </div>
+                      <div class="content">
+                        @if(isset($post->psd))
+                          <a class="is-outlined">PSD</a>
+                        @else
+                          <a class="is-static">PSD</a>
+                        @endif
+                        @if(isset($post->coding))
+                          <a class="is-outlined">{{$post->framework}}</a>
+                        @else
+                          <a class="is-static">HTML</a>
+                        @endif
+                        @if(isset($post->css))
+                          <a class="is-outlined">CSS</a>
+                        @else
+                          <a class="is-static">CSS</a>
+                        @endif
                       </div>
-                    </div>
-                  @endforeach
-                </div>
-              </section>
-          </div>
 
-        </div>
-        <!-- columns end -->
-      </div>
-    </section>
-    <!-- container ends -->
+                    </div>
+                  </div>
+                </v-flex>
+              @endforeach
+            </v-layout>
+          </v-container>
+        </v-flex>
+
+      </v-layout>
+
+    </v-container>
 
   </div>
-
-<Myplainfooter></Myplainfooter>
 
 @endsection
 

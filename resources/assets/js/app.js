@@ -1,24 +1,22 @@
-
-
 require('./bootstrap');
 
 import Vue from 'vue'
+import Vuetify from 'vuetify'
 
-import Buefy from 'buefy'
-Vue.use(Buefy);
+Vue.use(Vuetify)
 
-
-let userdashboardSidebar = require('./components/userdashboardSidebar.vue');
-let Preloader = require('./components/Preloader.vue');
+// let userdashboardSidebar = require('./components/userdashboardSidebar.vue');
+// let Preloader = require('./components/Preloader.vue');
+import Login from './pages/login'
 
 
 const app = new Vue({
     el: '#app',
     data: {
-      message: 'bybu'
+      message: 'bybu',
     },
     components:{
-      userdashboardSidebar,
-      Preloader
+      // Preloader
+      Login,
     }
 });

@@ -28,6 +28,13 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('showcase/me', 'ShowcaseController');
 });
 
+// Webpage Builder
+Route::get('/webpage-builder', 'BuilderController@index')->name('builder.index');
+Route::get('/webpage-builder/login-page', 'BuilderController@login')->name('builder.loginpage');
+// Bootstrap
+  Route::get('/webpage-builder/login/bootstrap', 'BuilderController@loginBootstrap')->name('bootstrap.login');
+    Route::get('/webpage-builder/login/bootstrap/1', 'BuilderController@loginBootstrapOne')->name('bootstrap.loginOne');
+
 // JSON BOND
 Route::get('/jsonbond', 'JsonbondController@index')->name('jsonbond.index');
 
@@ -55,8 +62,14 @@ Route::get('/all-designs', 'HomeController@all')->name('all-post');
 Route::get('/all-misc', 'HomeController@misc')->name('all-misc');
 Route::get('/all-templates', 'HomeController@template')->name('all-template');
 
+// CassAss
+Route::resource('/cassass', 'CassController');
+
 Route::get('showcase', 'ShowcaseController@dashboard')->name('showcase.dash');
 
+// PSD
+Route::resource('psd', 'PsdController');
+Route::post('/psd-download', 'PsdController@psdDownload');
 
 // ProfileController
 Route::resource('members/profiles', 'ProfileController');
@@ -72,6 +85,11 @@ Route::resource('categories', 'CategoryController');
 Route::resource('tags', 'TagController');
 
 Auth::routes();
+
+// Social Login Routes
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
 
 Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 

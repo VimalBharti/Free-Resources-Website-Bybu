@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Psd;
 use App\User;
+use App\Cass;
 use App\Tag;
 use App\Like;
 use App\ContactUs;
@@ -26,8 +28,10 @@ class HomeController extends Controller
         $user = Auth::user();
         $category = Category::all();
         $posts = Post::orderBy('created_at', 'desc')->paginate(24);
+        $psds = Psd::orderBy('created_at', 'desc')->paginate(3);
+        $casse = Cass::orderBy('created_at', 'desc')->paginate(4);
 
-        return view('home', compact('user', 'category', 'posts'));
+        return view('home', compact('user', 'category', 'posts', 'psds', 'casse'));
     }
 
     public function search(Request $request)

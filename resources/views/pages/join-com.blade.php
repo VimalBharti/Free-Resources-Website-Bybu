@@ -1,10 +1,10 @@
 <section class="join-Kom is-clipped">
-  <div class="text-area has-text-centered">
+  <div class="text-area text-xs-center">
     <span class="spiny">
       <i class="fa fa-cog" aria-hidden="true"></i>
     </span>
-    <h1>COME & JOIN THE COMMUNITY</h1>
-    <h4>Interested in working together?</h4>
-    <a href="{{ route('contact') }}" class="button">Let's do this</a>
+    <div class="headline white--text">COME & JOIN THE COMMUNITY</div>
+    <div class="subheading grey--text text--lighten-3 mt-2 mb-4">Interested in working together?</div>
+    <v-btn depressed href="{{ route('contact') }}">Join Now</v-btn>
   </div>
 </section>

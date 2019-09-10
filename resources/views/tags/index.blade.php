@@ -27,9 +27,9 @@
 
             {!! Form::open(['route' => 'tags.store', 'method' => 'POST']) !!}
                 {{ Form::label('name', 'Tag Name:') }} <br>
-                {{ Form::text('name', null, ['style' => 'font-size:1.8em;']) }}
+                {{ Form::text('name', null, ['style' => 'font-size:1.8em;border:1px solid #333;']) }}
 
-                {{ Form::submit('Add Tag', ['class' => 'button is-primary', 'style' => 'height:40px;width:120px;']) }}
+                {{ Form::submit('Add Tag', ['class' => 'button is-primary', 'style' => 'height:35px;width:120px;background:purple;color:#fff']) }}
             {!! Form::close() !!}
         </div>
 

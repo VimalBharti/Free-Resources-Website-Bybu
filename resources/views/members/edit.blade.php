@@ -4,13 +4,14 @@
 
 @section('stylesheet')
   {!! Html::style('css/select2.min.css') !!}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 @stop
 
 @section('content')
 
   <div class="user-dashboard">
     <div class="menu-bar">
-      @include('_partials.navbar')
+      @include('_partials.plainnavbar')
     </div>
 
     <!-- ==================Flash Messages===================-->
@@ -19,8 +20,10 @@
     <!-- ==================Flash Messages===================-->
 
     <div class="columns">
-
-        @include('members.sidebar')
+      
+        <div class="column is-2">
+          @include('members.sidebar')
+        </div>
 
         <div class="column is-7 create-new-post">
 

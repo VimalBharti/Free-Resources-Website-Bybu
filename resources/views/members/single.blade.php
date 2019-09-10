@@ -2,86 +2,75 @@
 
 @section('title', $single->slug)
 
+@section('stylesheet')
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"> -->
+@stop
+
 @section('content')
 
   <div class="menu-bar">
-    @include('_partials.navbar')
+    @include('_partials.plainnavbar')
   </div>
 
   <div class="single-design-page">
 
-    <div class="container">
-      <div class="featured-image-single has-text-centered">
-        <img src="/uploads/design/{{ $single->image }}" class="is-fullheight is-fullwidth">
+    <v-img src="/uploads/design/{{ $single->image }}"></v-img>
 
-        <div class="single-post-customize-btn is-hidden-mobile">
-          <a href="{{route('preview-design', $single->slug)}}">
-            <i class="fa fa-eye" aria-hidden="true"></i>Preview
-          </a>
-        </div>
+    <v-tabs
+      centered grow
+      color="#fefefe"
+      height="60px"
+    >
 
-      </div>
+      <v-tabs-slider color="cyan"></v-tabs-slider>
 
-      <section>
-        <b-tabs type="is-boxed" position="is-centered" size="is-medium" expanded>
-            <b-tab-item label="CODE" icon="fas fa fa-code">
-<pre>
-<code class="language-html" data-lang="html">
-{{ $single->coding }}
-</code>
-</pre>
-            </b-tab-item>
+      <v-tab href="#tab-1">
+        <i class="fa fa-code"></i> CODE
+      </v-tab>
 
-            <b-tab-item label="CSS" icon="fas fa fa-css3">
-<pre>
-<code class="language-html" data-lang="css">
-{{$single->css}}
-</code>
-</pre>
-            </b-tab-item>
+      <v-tab href="#tab-2">
+        <i class="fa fa-css3"></i> CSS
+      </v-tab>
 
-            <b-tab-item label="JS" icon="fas fa fa-css3">
-<pre>
-<code class="language-html" data-lang="js">
-{{$single->js}}
-</code>
-</pre>
-            </b-tab-item>
+      <v-tab href="#tab-3">
+        <i class="fa fa-bolt"></i>JS
+      </v-tab>
 
-        </b-tabs>
-      </section>
+      <v-tab-item value="tab-1">
+        <code>{{ $single->coding }}</code>
+      </v-tab-item>
+      <v-tab-item value="tab-2">
+        <code>{{$single->css}}</code>
+      </v-tab-item>
+      <v-tab-item value="tab-3">
+        <code>{{$single->js}}</code>
+      </v-tab-item>
+    </v-tabs>
 
-      <div class="content posted-by-single-page">
-        <div class="columns">
-          <div class="column is-half">
-            <p><i class="fa fa-edit"></i> Submitted By:
-              <strong><a href="/profile/{{$single->user_slug}}">{{$single->user_name}}</a></strong>
-            </p>
-          </div>
-          <div class="column is-half has-text-right">
-            @if(isset($single->credit))
-            <p><i class="fa fa-edit"></i> Credit:
-              <strong><a href="{{$single->url}}" target="_blank">{{$single->credit}}</a></strong>
-            </p>
-            @endif
-          </div>
-        </div>
-      </div>
+    <v-toolbar dense flat class="content posted-by-single-page white">
+      <v-toolbar-items>
+        <p><i class="fa fa-edit"></i> Submitted By:
+          <strong><a href="/profile/{{$single->user_slug}}">{{$single->user_name}}</a></strong>
+        </p>
+      </v-toolbar-items>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        @if(isset($single->credit))
+        <p><i class="fa fa-edit"></i> Credit:
+          <strong><a href="{{$single->url}}" target="_blank">{{$single->credit}}</a></strong>
+        </p>
+        @endif
+      </v-toolbar-items>
+    </v-toolbar>
 
-      <div class="tags">
-        @foreach($single->tags as $tag)
-          <span class="tag is-dark">
-            {{ $tag->name }}
-          </span>
-        @endforeach
-      </div>
-
-    </div>
-    <!-- container ends -->
+    <v-toolbar>
+      @foreach($single->tags as $tag)
+        <v-chip small color="pink" text-color="white">{{ $tag->name }}</v-chip>
+      @endforeach
+    </v-toolbar>
 
   </div>
-
-    @include('pages.join-com')
+  <!-- container ends -->
 
     @include('_partials.footer')
 

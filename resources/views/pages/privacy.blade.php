@@ -5,18 +5,19 @@
 @section('content')
 
   <div class="menu-bar">
-    @include('_partials.navbar')
+    @include('_partials.plainnavbar')
   </div>
 
-  <section>
-    <div class="columns about-us-page">
-      <div class="column">
-        <h1>Privacy Policy</h1>
-      </div>
+  <div class="columns about-us-page">
+    <div class="column">
+      <h1>Privacy Policy</h1>
     </div>
-    <div class="columns about-us-page-text">
-      <div class="column is-6 is-offset-3">
-        <h1>What personal data do we collect, why do we collect it, with whom do we share it and how do we use it?</h1>
+  </div>
+
+  <v-container>
+    <v-layout class="about-us-page-text">
+      <v-flex>
+        <div class="title">What personal data do we collect, why do we collect it, with whom do we share it and how do we use it?</div>
         <ul>
           <li>We collect and process only the personal data necessary for the Bybu.cc service: create a user profile and allow you to access the functions of the website (email address, username).</li>
           <li>We process your personal data to allow you to access the Bybu.cc service.</li>
@@ -24,20 +25,19 @@
           <li>We keep your personal information whenever you use Bybu.cc or until you delete your account. After the completion of the Service, the data is retained for a few days.</li>
           <li>We do not share your data with third parties.</li>
         </ul>
-        <h2>How to access, update and remove your data from Bybu.cc?</h2>
+        <div class="title">How to access, update and remove your data from Bybu.cc?</div>
         <ul>
           <li>
-            You can edit your personal data at any:
-            <strong><h5>By Edit your profile</h5> </strong>
+            You can edit your personal data at any time:
+            <strong>By Edit your profile</strong>
           </li>
           <li>
-            <!-- You can remove your account and personal data at any time here: -->
+            You can remove your account and personal data at any time
           </li>
         </ul>
-
-      </div>
-    </div>
-  </section>
+      </v-flex>
+    </v-layout>
+  </v-container>
 
   @include('_partials.footer');
 

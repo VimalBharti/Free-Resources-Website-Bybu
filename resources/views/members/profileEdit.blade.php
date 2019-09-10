@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
+@section('stylesheet')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+@stop
+
 @section('content')
 
 <div class="plain-footer-container edit-profile-page">
     <div class="menu-bar">
-      @include('_partials.navbar')
+      @include('_partials.plainnavbar')
     </div>
 
-    <div class="container is-widescreen with-plain-footer">
+    <div class=" with-plain-footer">
 
       <div class="column is-10 is-offset-1">
 

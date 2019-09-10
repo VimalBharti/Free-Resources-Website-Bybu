@@ -6,27 +6,22 @@
 
   <div class="showcase-homepage">
 
-    @include('_partials.navbar')
+    @include('_partials.plainnavbar')
 
-    <section class="hero is-medium is-bold has-text-centered">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title text-bold is-2">
-            Free Instant Showcase
-          </h1>
-          <h2 class="subtitle">
-            Quickly & simply show flat presentation
-          </h2>
+    <v-layout class="hero">
+      <v-flex>
+        <div class="display-1">Free Instant Showcase</div>
+        <div class="sub-head">Quickly & simply show flat presentation</div>
+        <div class="">
           @if(Auth::guest())
-            <a href="{{route('me.index')}}" class="button">GET STARTED - FREE FOREVER</a>
+            <v-btn href="{{route('me.index')}}" class="button">GET STARTED - FREE FOREVER</v-btn>
           @else
-            <a href="{{route('me.index')}}" class="button">Go To Dashboard</a>
+            <v-btn href="{{route('me.index')}}" class="button">Go To Dashboard</v-btn>
           @endif
         </div>
-      </div>
-      <img src="{{asset('images/head.jpg')}}" alt="">
-    </section>
-
+      </v-flex>
+    </v-layout>
+    <v-img src="{{asset('images/head.jpg')}}"></v-img>
   </div>
 
   @include('_partials.footer')

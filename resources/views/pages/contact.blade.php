@@ -2,10 +2,14 @@
 
 @section('title', 'Contact Us')
 
+@section('stylesheet')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+@stop
+
 @section('content')
 
   <div class="menu-bar">
-    @include('_partials.navbar')
+    @include('_partials.plainnavbar')
   </div>
 
   <section class="is-white has-text-centered contact-page-top">

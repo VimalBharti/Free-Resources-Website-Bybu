@@ -1,0 +1,45 @@
+<v-flex md4 d-flex>
+  <v-card white flat>
+    <v-dialog v-model="preview" width="100%">
+      <template v-slot:activator="{ on }">
+        <v-img
+          src="uploads/psd/{{$psd->image}}"
+          aspect-ratio="2"
+          position="top center"
+          v-on="on"
+          class="thumbnail"
+        ></v-img>
+      </template>
+      <v-card flat>
+          <div class="designer-details">
+            <div class="details">
+              <v-avatar size="28" color="grey lighten-4" class="mr-2">
+                <img src="/avatar/{{$psd->user_image}}">
+              </v-avatar>
+              <span>Designer:  <a href="#">{{$psd->user_name}}</a></span>
+              <span>Category:  <a href="#">{{$psd->category->name}}</a></span>
+              <span>Downloaded:  300</span>
+            </div>
+            <v-spacer></v-spacer>
+            <v-btn flat icon fab
+              class="close-btn"
+              @click="preview = false"
+            ><i class="fa fa-times"></i></v-btn>
+          </div>
+          <!-- <v-img
+            src="uploads/psd/{{$psd->image}}"
+          ></v-img> -->
+          <img src="uploads/psd/{{$psd->image}}">
+      </v-card>
+    </v-dialog>
+    <v-card-text>
+      <div class="title">
+        <a v-on="on">{{str_limit($psd->title, 30, '..')}}</a>
+      </div>
+      <div class="about-psd text-lowercase">
+        {{str_limit($psd->description, 90)}}
+      </div>
+      <v-btn block large dark round color="purple">Download</v-btn>
+    </v-card-text>
+  </v-card>
+</v-flex>

@@ -5,17 +5,18 @@
 @section('content')
 
   <div class="menu-bar">
-    @include('_partials.navbar')
+    @include('_partials.plainnavbar')
   </div>
 
-  <section>
-    <div class="columns about-us-page">
-      <div class="column">
-        <h1>Terms of Service</h1>
-      </div>
+  <div class="columns about-us-page">
+    <div class="column">
+      <h1>Terms of Service</h1>
     </div>
-    <div class="columns about-us-page-text">
-      <div class="column is-8 is-offset-2">
+  </div>
+
+  <v-container>
+    <v-layout class="about-us-page-text">
+      <v-flex>
         <p>These Terms of Service describe the rights and responsibilities that apply to your use of the websites Bybu.cc</p>
         <p>Read the Terms carefully before using the Service. If you do not accept the Terms, as well as Bybu's <a href="{{url('/privacy')}}">Privacy Policy</a> and the Bybu's <a href="{{url('/guideline')}}">Guidelines</a>, you may not use the Service.</p>
 
@@ -40,10 +41,9 @@
           <li><p>Bybu may terminate your access to all or part of the Service at any time, with or without cause, with or without notice, with immediate effect. If you wish to cancel your Account, you can simply stop using the Service. </p> </li>
           <li><p>You may contact us by email at support@bybu.cc</p> </li>
         </ol>
-
-      </div>
-    </div>
-  </section>
+      </v-flex>
+    </v-layout>
+  </v-container>
 
   @include('_partials.footer');
 

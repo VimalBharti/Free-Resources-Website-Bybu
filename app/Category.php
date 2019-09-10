@@ -11,4 +11,8 @@ class Category extends Model
   public function posts(){
       return $this->hasMany('App\Post');
   }
+
+  public function psds(){
+      return $this->hasMany('App\Psd');
+  }
 }

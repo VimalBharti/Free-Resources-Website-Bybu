@@ -5,43 +5,20 @@
 @section('content')
 
   <div class="plain-footer-container showcase-page">
-    <div class="menu-bar">
-      @include('_partials.navbar')
-    </div>
 
-    <div class="with-plain-footer">
+    @include('_partials.plainnavbar')
 
-      <nav class="left-navbar is-hidden-mobile">
-        <div class="left-navbar-inner">
-          <ul>
-            <li class="main-logo">
-              <a href="{{route('showcase.dash')}}"><img src="{{asset('images/slogo.png')}}"></a>
-            </li>
-            <li>
-              <a href="{{route('profiles.show', $user->username)}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="{{url('/')}}"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
-            </li>
-          </ul>
-          <!-- profile -->
-          <ul class="profile">
-            <li>
-              <a class="profile-trigger">
-                <img src="/avatar/{{$user->avatar}}" class="nav-avatar">
-                <span class="online"></span>
-              </a>
-            </li>
-          </ul>
-
-        </div>
-      </nav>
-
-      <div class="column is-12 showcase-area">
+      <v-layout class="showcase-area grey lighten-5">
 
             @foreach($showcases as $showcase)
-                <div class="featured-image-box column is-5">
-                    <a href="{{route('showcase.single', $showcase->slug)}}" target="_blank"><img src="/myshowcase/{{$showcase->image}}"></a>
+                <v-flex xs4 class="uploded-image">
+                    <a href="{{route('showcase.single', $showcase->slug)}}" target="_blank">
+                      <v-img
+                        src="/myshowcase/{{$showcase->image}}"
+                        aspect-ratio="1.4"
+                        position="top center"
+                      ></v-img>
+                    </a>
 
                     <!-- delete image -->
                     <div class="delete-button-box">
@@ -49,7 +26,7 @@
                             {!! Form::submit('Delete', ['class' => 'delete-button']) !!}
                         {!! Form::close() !!}
                     </div>
-                </div>
+                </v-flex>
             @endforeach
 
             {!! Form::open(array('route' => 'me.store', 'data-parsley-validate' => '', 'enctype' => 'multipart/form-data', 'files' => true)) !!}
@@ -71,10 +48,7 @@
 
             {!! Form::close() !!}
 
-      </div>
-
-    </div>
-    <!-- container ends -->
+      </v-layout>
 
   </div>
 

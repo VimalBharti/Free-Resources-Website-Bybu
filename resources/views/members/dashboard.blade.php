@@ -6,89 +6,78 @@
 
   <div class="user-dashboard">
     <div class="menu-bar">
-      @include('_partials.navbar')
+      @include('_partials.plainnavbar')
     </div>
 
-    <div class="columns">
+    <v-layout>
+      <v-flex md2>
+        @include('members.sidebar')
+      </v-flex>
 
-      @include('members.sidebar')
-
-      <div class="column is-10">
-
-        <section>
-          <div class="columns is-multiline all-post-list">
+      <v-flex md10 xs12>
+        <v-container grid-list-lg>
+          <v-layout class="all-post-list" row wrap>
             @foreach ($posts as $post)
-              <div class="column is-one-quarter single-post">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <a href="{{route('post.show', $post->slug)}}" target="_blank">
-                        <img src="/uploads/design/thumbs/{{ $post->image }}" class="thumb">
-                      </a>
-
-                      <span class="edit-btn">
-                          <a href="{{route('members.edit', $post->id)}}">edit</a>
-                      </span>
-                    </figure>
+              <v-flex md3 class="single-post">
+                <v-card flat>
+                  <a href="{{route('post.show', $post->slug)}}" target="_blank">
+                    <v-img
+                      src="/uploads/design/thumbs/{{ $post->image }}"
+                      height="200"
+                      lazy-src="{{asset('images/lazy.png')}}"
+                    ></v-img>
+                  </a>
+                  <div class="subheading mt-3">
+                    {{ $post->title }}
                   </div>
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="user-small-image">
-                        <figure class="image is-24x24 user-image">
-                          <img src="/avatar/{{$post->user_image}}" class="is-rounded">
-                        </figure>
-                      </div>
-                      <div class="media-content">
-                        <a href="#"><p class="title is-5">{{$post->user_name}}</p></a>
-                      </div>
-                      <div class="delete-post">
-                        {!! Form::open(['route' => ['members.destroy', $post->id], 'method' => 'DELETE']) !!}
-                          {!! Form::submit('trash', ['class' => 'delete-button']) !!}
-                        {!! Form::close() !!}
-                      </div>
-                    </div>
+                  <v-card-actions class="chips-tag px-0">
+                    @if(isset($post->psd))
+                      <span><i class="fa fa-dot-circle green--text text--lighten-1"></i> PSD</span>
+                    @endif
+                    @if(isset($post->coding))
+                      <span><i class="fa fa-dot-circle purple--text text--lighten-2"></i> {{$post->framework}}</span>
+                    @endif
+                    @if(isset($post->css))
+                      <span><i class="fa fa-dot-circle cyan--text text--lighten-1"></i> CSS</span>
+                    @endif
 
-                    <div class="content">
-                      @if(isset($post->psd))
-                        <a class="button is-primary is-outlined">PSD</a>
-                      @else
-                        <a class="button is-static">PSD</a>
-                      @endif
-                      @if(isset($post->coding))
-                        <a class="button is-primary is-outlined">{{$post->framework}}</a>
-                      @else
-                        <a class="button is-static">HTML</a>
-                      @endif
-                      @if(isset($post->css))
-                        <a class="button is-primary is-outlined">CSS</a>
-                      @else
-                        <a class="button is-static">CSS</a>
-                      @endif
+                    <v-spacer></v-spacer>
 
-                    </div>
-
+                    <v-avatar size="22px">
+                      <img src="/avatar/{{$post->user_image}}">
+                    </v-avatar>
+                  </v-card-actions>
+                  <div class="action-btn">
+                    <v-btn fab outline small
+                      href="{{route('members.edit', $post->id)}}"
+                    >
+                      Edit
+                    </v-btn>
+                    <v-btn fab outline small>
+                      {!! Form::open(['route' => ['members.destroy', $post->id], 'method' => 'DELETE']) !!}
+                        {!! Form::submit('trash', ['class' => 'delete-button']) !!}
+                      {!! Form::close() !!}
+                    </v-btn>
                   </div>
-                </div>
-              </div>
+                </v-card>
+              </v-flex>
             @endforeach
-          </div>
-        </section>
-
-      </div>
-
-    </div>
+          </v-layout>
+        </v-container>
+      </v-flex>
+    </v-layout>
   </div>
 
 @endsection
 
 @section('scripts')
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123989535-1"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123989535-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-123989535-1');
-  </script>
+  </script> -->
 @endsection

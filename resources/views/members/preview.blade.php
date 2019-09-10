@@ -2,6 +2,10 @@
 
 @section('title', $single->slug)
 
+  @section('stylesheet')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  @stop
+
 @section('content')
 
   <div class="single-design-page">

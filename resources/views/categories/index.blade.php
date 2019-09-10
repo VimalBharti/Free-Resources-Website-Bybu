@@ -27,9 +27,9 @@
 
             {!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}
                 {{ Form::label('name', 'Category Name:') }} <br>
-                {{ Form::text('name', null, ['style' => 'font-size:1.6em;']) }}
+                {{ Form::text('name', null, ['style' => 'font-size:1.6em;border:1px solid #333;']) }}
 
-                {{ Form::submit('Add Category', ['class' => 'button is-primary', 'style' => 'height:37px;width:150px;']) }}
+                {{ Form::submit('Add Category', ['class' => 'button is-primary', 'style' => 'height:35px;width:150px;background:purple;color:#fff']) }}
             {!! Form::close() !!}
         </div>
     </div>
