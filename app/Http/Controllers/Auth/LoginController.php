@@ -70,7 +70,7 @@ class LoginController extends Controller
           // register new user
           $user = new User;
           $user->name = $user->name;
-          $usre->email = $user->email;
+          $user->email = $user->email;
           $user->password = bcrypt('password');
           $user->save();
 
