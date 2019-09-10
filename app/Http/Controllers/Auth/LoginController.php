@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\User;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -21,6 +21,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    use Socialite;
     use AuthenticatesUsers;
 
     /**
