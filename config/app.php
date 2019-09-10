@@ -161,8 +161,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        // Dropbox provider
-        BC\Laravel\DropboxDriver\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
