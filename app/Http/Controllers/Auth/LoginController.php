@@ -56,10 +56,34 @@ class LoginController extends Controller
     public function redirectToProvider(){
         return Socialite::driver('google')->redirect();
     }
+    public function redirectToFacebook(){
+        return Socialite::driver('facebook')->redirect();
+    }
 
     public function handleProviderCallback()
     {
         $user = Socialite::driver('google')->user();
+
+        $dbUser = User::where('email', $user->email)->first();
+
+        if($dbUser){
+          \Auth::login($dbUser);
+          return redirect('/');
+        } else {
+          // register new user
+          $user = new User;
+          $user->name = $user->name;
+          $user->email = $user->email;
+          $user->password = bcrypt('password');
+          $user->save();
+
+          \Auth::login($user);
+          return redirect('/');
+        }
+    }
+    public function facebookCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
 
         $dbUser = User::where('email', $user->email)->first();
 

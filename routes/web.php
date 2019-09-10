@@ -89,6 +89,9 @@ Auth::routes();
 // Social Login Routes
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+// Facebook
+Route::get('login/facebook', 'Auth\LoginController@redirectToFacebook');
+Route::get('login/facebook/callback', 'Auth\LoginController@facebookCallback');
 
 
 Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
