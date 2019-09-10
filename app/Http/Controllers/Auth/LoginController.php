@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\User;
-use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -21,7 +21,6 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-    use Socialite;
     use AuthenticatesUsers;
 
     /**
@@ -54,50 +53,27 @@ class LoginController extends Controller
 
     // Social Login
 
-    public function redirectToProvider($provider){
-        return Socialite::driver($provider)->redirect();
+    public function redirectToProvider(){
+        return Socialite::driver('google')->redirect();
     }
 
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback()
     {
-        try{
-          $user = Socialite::driver($provider)->user();
-        } catch (Exception $e) {
-          return redirect('/login');
+        $user = Socialite::driver('google')->user();
+
+        $dbUser = User::where('email', $user->email)->first();
+
+        if($dbUser){
+          \Auth::login($dbUser);
+          return redirect('/');
+        } else {
+          // register new user
+          $user = new User;
+          $user->name = $user->name;
+          $usre->email = $user->email;
+          $user->password = bcrypt('password');
+          $user->save();
         }
-
-        $authUser = $this->findOrCreateUser($user, $provider);
-
-        Auth::login($authUser, true);
-        return redirect('/');
-    }
-
-    public function findOrCreateUser($socialUser, $provider)
-    {
-      $socialAccount = SocialAccount::where('provider_id', $socialUser->getId())
-                      ->where('provider_name', $provider)
-                      ->first();
-      if($socialAccount){
-          return $socialAccount->user;
-      } else {
-        $user = User::where('email', $socialUser->getEmail())->first();
-
-        if(! $user) {
-          $user = User::create([
-            'name' => $socialUser->getName(),
-            'email'=> $socialUser->getEmail()
-          ]);
-        }
-
-        $user->socialAccounts()->create([
-          'provider_id' => $socialUser->getId(),
-          'provider_name' => $provider
-        ]);
-
-        return $user;
-
-      }
-
     }
 
 
