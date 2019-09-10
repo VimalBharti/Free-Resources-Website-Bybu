@@ -73,6 +73,9 @@ class LoginController extends Controller
           $usre->email = $user->email;
           $user->password = bcrypt('password');
           $user->save();
+
+          \Auth::login($user);
+          return redirect('/');
         }
     }
 
