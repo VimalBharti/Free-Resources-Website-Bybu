@@ -35,7 +35,7 @@
 
               <button class="login-btn">Login</button>
 
-              <div class="divider line one-line" contenteditable>OR</div>
+              <!-- <div class="divider line one-line" contenteditable>OR</div>
 
               <v-layout row class="social-auth-links">
                 <v-flex class="google">
@@ -44,7 +44,7 @@
                 <v-flex class="facebook">
                   <v-btn flat block class="btn"><img src="images/fb.png">Facebook</v-btn>
                 </v-flex>
-              </v-layout>
+              </v-layout> -->
 
             </form>
         </div>
@@ -53,7 +53,7 @@
 
         <div class="signup-text">
           Don't have an account?
-
+          <a href="/register">Register</a>
         </div>
       </v-card>
     </v-menu>

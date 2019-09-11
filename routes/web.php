@@ -84,7 +84,7 @@ Route::group(['middleware' => 'auth'], function(){
 Route::resource('categories', 'CategoryController');
 Route::resource('tags', 'TagController');
 
-Auth::routes();
+Auth::routes(); 
 
 // Social Login Routes
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');

@@ -9241,7 +9241,8 @@ a {
 }
 
 .login-box .signup-text a {
-  color: #cf1bb0;
+  color: #cf1bb0 !important;
+  font-size: 9px;
 }
 
 .login-box .login-logo {
@@ -10629,6 +10630,37 @@ a {
   list-style: disc;
   text-align: justify;
   line-height: 1.5em;
+}
+
+.admin-login {
+  background: url("/../../images/code-bg.jpg") center center;
+  background-size: cover;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.admin-login .logo {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.admin-login .form-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2em;
+  border-radius: 8px;
+}
+
+.admin-login .form-container .login-btn {
+  background: #cf1bb0;
+  color: #fff;
+  width: 100%;
+  padding: 1em;
+  border-radius: 5px;
 }
 
 .admin-panel .admin-sidebar {
