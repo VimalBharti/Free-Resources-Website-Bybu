@@ -211,7 +211,7 @@ img{
       <v-layout>
         <v-flex md5>
           <v-img
-            src="{{asset('images/showcase.png')}}"
+            src="{{asset('images/showcase.jpg')}}"
           ><v-img>
         </v-flex>
         <v-flex md7 xs12 class="showcase-text-home pt-5">
