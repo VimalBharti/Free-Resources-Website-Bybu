@@ -9,13 +9,16 @@
 
     <v-toolbar-items class="hidden-sm-and-down">
       @if (Auth::guest())
+        <v-btn flat href="{{route('free-templates.index')}}">Templates</v-btn>
         <v-btn flat href="{{route('me.index')}}">Showcase</v-btn>
-        <li>@include('../login')</li>
+        <li><a class="showcase-btn pb-3" href="{{url('login')}}">
+          <span><i class="fa fa-sign-in"></i> Login</span>
+        </a></li>
       @else
         <v-btn flat href="{{route('me.index')}}">Showcase</v-btn>
         <v-menu offset-y>
             <v-avatar size="40" slot="activator" class="gradient-bg text-uppercase">
-                VB
+                {{ str_limit(Auth::user()->name, 1, $end='') }}
             </v-avatar>
             <v-list class="">
                 <v-list-tile href="{{route('member.dashboard')}}">

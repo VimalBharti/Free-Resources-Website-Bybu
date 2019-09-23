@@ -25,8 +25,62 @@
     <img src="{{asset('images/s-logo.png')}}" alt="bybu.cc" style="height:52px;">
   </div>
 
-  <!-- PSD Grids -->
+  <!-- Templates Grids -->
   <div class="home-psd-list py-5">
+    <v-container grid-list-xl>
+      <v-layout>
+        <v-flex>
+          <div class="top-psd-content">
+            <div class="display-1 mb-2">Best Free Website Templates</div>
+            <div class="mb-4 grey--text caption font-weight-bold" style="letter-spacing: 4px;">
+              BOOTSTRAP | BULMA | TAILWIND | MATERILIZE | SEMENATICUI | FOUNDATION
+            </div>
+            <div class="para">We aim to bring you the best free website templates, which you will not find on any other place. Join us and download our premium quality free templates for your personal and commercial use. Build your dream with help of our free Templates.</div>
+          </div>
+        </v-flex>
+      </v-layout>
+
+      <v-layout class="psd-grid">
+        @foreach ($templates as $template)
+        <v-flex md4 d-flex>
+          <v-card white flat hover class="single-psd-list">
+            <a href="{{route('free-templates.show', $template->slug)}}" target="_blank">
+              <v-img
+                src="/storage/templates/{{$template->image}}"
+                aspect-ratio="1.4"
+                position="top center"
+                v-on="on"
+                class="thumbnail"
+              ></v-img>
+            </a>
+            <v-card-text>
+              <div class="title">
+                <a>{{str_limit($template->title, 30, '..')}}</a>
+              </div>
+              <div class="about-psd">
+                {{str_limit($template->about, 120)}}
+              </div>
+              <v-btn
+                block large dark round color="purple"
+                href="{{route('free-templates.show', $template->slug)}}" target="_blank"
+              >Preview & Download
+              </v-btn>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        @endforeach
+      </v-layout>
+
+      <v-flex class="text-xs-center">
+        <v-btn outline large round block color="purple" href="{{route('free-templates.index')}}">View all</v-btn>
+      </v-flex>
+
+    </v-container>
+  </div>
+
+
+  <!-- PSD Grids -->
+  <!-- <div class="home-psd-list py-5">
     <v-container grid-list-xl>
       <v-layout>
         <v-flex>
@@ -66,7 +120,6 @@
           </v-card>
         </v-flex>
         @endforeach
-
       </v-layout>
 
       <v-flex class="text-xs-center">
@@ -74,7 +127,7 @@
       </v-flex>
 
     </v-container>
-  </div>
+  </div> -->
 
   <!-- Free Design Resource -->
   <v-container grid-list-lg class="mb-5">
@@ -231,15 +284,6 @@ img{
 @stop
 
 @section('scripts')
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123989535-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-123989535-1');
-  </script> -->
-
   <script type="text/javascript">
     $("#no-result").delay(2500).fadeOut(300);
   </script>

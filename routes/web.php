@@ -28,12 +28,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('showcase/me', 'ShowcaseController');
 });
 
-// Webpage Builder
-Route::get('/webpage-builder', 'BuilderController@index')->name('builder.index');
-Route::get('/webpage-builder/login-page', 'BuilderController@login')->name('builder.loginpage');
-// Bootstrap
-  Route::get('/webpage-builder/login/bootstrap', 'BuilderController@loginBootstrap')->name('bootstrap.login');
-    Route::get('/webpage-builder/login/bootstrap/1', 'BuilderController@loginBootstrapOne')->name('bootstrap.loginOne');
+// Frameworks for templates
+Route::get('templates/{name}', 'FrameworkController@templateByFramework')->name('framework.template');
+
+// Fre Templates
+Route::resource('free-templates', 'TemplateController');
 
 // JSON BOND
 Route::get('/jsonbond', 'JsonbondController@index')->name('jsonbond.index');
@@ -84,7 +83,7 @@ Route::group(['middleware' => 'auth'], function(){
 Route::resource('categories', 'CategoryController');
 Route::resource('tags', 'TagController');
 
-Auth::routes(); 
+Auth::routes();
 
 // Social Login Routes
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');

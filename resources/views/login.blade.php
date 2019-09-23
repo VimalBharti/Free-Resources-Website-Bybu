@@ -4,6 +4,7 @@
       :close-on-content-click="false"
       :nudge-width="250"
       offset-y
+
     >
       <template v-slot:activator="{ on }">
         <a v-on="on" class="showcase-btn pb-3">

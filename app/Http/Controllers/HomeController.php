@@ -11,6 +11,7 @@ use App\Tag;
 use App\Like;
 use App\ContactUs;
 use App\Category;
+use App\Template;
 use Image;
 use Session;
 use File;
@@ -29,9 +30,10 @@ class HomeController extends Controller
         $category = Category::all();
         $posts = Post::orderBy('created_at', 'desc')->paginate(24);
         $psds = Psd::orderBy('created_at', 'desc')->paginate(3);
+        $templates = Template::orderBy('created_at', 'desc')->paginate(3);
         $casse = Cass::orderBy('created_at', 'desc')->paginate(4);
 
-        return view('home', compact('user', 'category', 'posts', 'psds', 'casse'));
+        return view('home', compact('user', 'category', 'posts', 'psds', 'templates', 'casse'));
     }
 
     public function search(Request $request)

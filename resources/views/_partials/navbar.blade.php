@@ -11,11 +11,11 @@
         </div>
         <ul class="nav__links">
           @if (Auth::guest())
-            <!-- <li>
-              <a href="{{route('builder.index')}}" class="showcase-btn">
-                <span><i class="fa fa-wrench"></i> Webpage Builder</span>
+            <li>
+              <a href="{{route('free-templates.index')}}" class="showcase-btn">
+                <span><i class="fa fa-html5"></i> Templates</span>
               </a>
-            </li> -->
+            </li>
             <li>
               <a href="{{route('me.index')}}" class="showcase-btn">
                 <span><i class="fa fa-columns"></i> Showcase</span>
