@@ -79,7 +79,7 @@
                 <v-img src="/images/brands/materialui.jpg"></v-img>
               </a>
             </template>
-            <span>Material-UI</span>
+            <span>Semantic-UI</span>
           </v-tooltip>
         </v-flex>
       </v-layout>

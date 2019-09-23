@@ -105,7 +105,7 @@
 
             <!-- MaterialUI -->
             <div class="field mb-3">
-              <label class="label">Upload MaterialUI File (zip):</label>
+              <label class="label">Upload Semantic UI File (zip):</label>
               <div class="file-input">
                 <input type="file" name="materialui">
               </div>
