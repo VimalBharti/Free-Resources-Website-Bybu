@@ -13,7 +13,7 @@
       <div class="swiper-wrapper">
         @forelse($frameworks as $framework)
           <div class="swiper-slide">
-            <a class="slider-category" href="{{route('framework.template', $framework->name)}}">
+            <a class="slider-category">
               <v-img src="/uploads/brands/{{$framework->image}}" alt="Bybu.cc:{{$framework->name}}"></v-img>
             </a>
           </div>
