@@ -33,14 +33,13 @@
     <v-layout>
       @foreach($images as $image)
       <v-flex md3>
-        <!-- <v-img
-          class="white--text"
-          aspect-ratio="1.4"
-          position="top center"
-          src="/storage/images/{{$image->url}}"
-        ></v-img> -->
         <a href="/storage/images/{{$image->url}}" target="_blank">
-          <img src="/storage/images/{{$image->url}}">
+          <v-img
+            class="white--text"
+            aspect-ratio="1.4"
+            position="top center"
+            src="/storage/images/{{$image->url}}"
+          ></v-img>
         </a>
       </v-flex>
       @endforeach
