@@ -36,6 +36,7 @@
               {{ Form::submit('Add CassAss', ['class' => 'button is-primary', 'style' => 'height:35px;width:150px;background:#333;color:#fff;margin-top:2em;']) }}
           {!! Form::close() !!}
         </div>
+
       </v-flex>
 
     </v-layout>

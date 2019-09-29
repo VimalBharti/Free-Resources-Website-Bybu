@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('showcase/me', 'ShowcaseController');
 });
 
+// Image Resource Route
+Route::resource('b-images', 'ImagesController');
+
 // Frameworks for templates
 Route::get('templates/{name}', 'FrameworkController@templateByFramework')->name('framework.template');
 
