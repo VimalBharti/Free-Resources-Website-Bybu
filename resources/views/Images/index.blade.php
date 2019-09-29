@@ -39,7 +39,9 @@
           position="top center"
           src="/storage/images/{{$image->url}}"
         ></v-img> -->
-        <img src="/storage/images/{{$image->url}}" alt="">
+        <a href="/storage/images/{{$image->url}}" target="_blank">
+          <img src="/storage/images/{{$image->url}}">
+        </a>
       </v-flex>
       @endforeach
     </v-layout>
