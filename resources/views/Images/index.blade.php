@@ -36,7 +36,7 @@
         <a href="/storage/images/{{$image->url}}" target="_blank">
           <v-img
             class="white--text"
-            aspect-ratio="1"
+            aspect-ratio="2"
             position="top center"
             src="/storage/images/{{$image->url}}"
           ></v-img>
