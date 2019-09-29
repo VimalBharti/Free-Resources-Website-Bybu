@@ -17,7 +17,7 @@
       <v-flex xs12>
         <div class="images-box">
           <h2 class="mb-4">Add Images</h2>
-          {!! Form::open(array('route' => 'b-images.store', 'id' => 'post-form', 'enctype' => 'multipart/form-data', 'files' => true)) !!}
+          {!! Form::open(array('route' => 'images.store', 'id' => 'post-form', 'enctype' => 'multipart/form-data', 'files' => true)) !!}
 
             {{ csrf_field() }}
             <input type="file" name="url">
@@ -29,24 +29,26 @@
         </div>
       </v-flex>
     </v-layout>
-
-    <v-layout>
-      @foreach($images as $image)
-      <v-flex md3>
-        <v-card flat>
-          <a href="/storage/images/{{$image->url}}" target="_blank">
-            <v-img
-              class="white--text"
-              aspect-ratio="2"
-              position="top center"
-              src="/storage/images/{{$image->url}}"
-            ></v-img>
-          </a>
-        </v-card>
-      </v-flex>
-      @endforeach
-    </v-layout>
   </v-container>
+
+  <v-container grid-list-lg>
+  <v-layout row wrap>
+    @foreach($images as $image)
+    <v-flex md3>
+      <v-card flat>
+        <a href="{{asset('b-images/' . $image->url )}}" target="_blank">
+          <v-img
+            class="white--text"
+            height="200px"
+            contain
+            src="{{asset('/b-images/' . $image->url )}}"
+          ></v-img>
+        </a>
+      </v-card>
+    </v-flex>
+    @endforeach
+  </v-layout>
+</v-container>
 
   <v-footer class="pa-3" absolute bottom>
     <v-spacer></v-spacer>

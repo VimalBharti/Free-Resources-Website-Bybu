@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 // Image Resource Route
-Route::resource('b-images', 'ImagesController');
+Route::resource('/b/images', 'ImagesController');
 
 // Frameworks for templates
 Route::get('templates/{name}', 'FrameworkController@templateByFramework')->name('framework.template');

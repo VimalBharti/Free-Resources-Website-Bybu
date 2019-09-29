@@ -5,8 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Image extends Model
+class Gallery extends Model
 {
     protected $table = 'images';
-    
+
 }

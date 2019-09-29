@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
+use App\Gallery;
 use Illuminate\Http\Request;
 
 class ImagesController extends Controller
@@ -14,7 +14,7 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        $images = Image::all();
+        $images = Gallery::all();
         return view('Images.index', compact('images'));
     }
 
@@ -37,15 +37,16 @@ class ImagesController extends Controller
     public function store(Request $request)
     {
 
-        $image = new Image;
+        $gallery = new Gallery;
 
         if($request->hasFile('url')){
-          $filename = $request->file('url')->getClientOriginalName();
-          $path = $request->file('url')->storeAs('public/images/', $filename);
-          $image->url = $filename;
+          $image = $request->file('url');
+          $new_name = $image->getClientOriginalName();
+          $image->move(public_path("b-images"), $new_name);
+          $gallery->url = $new_name;
         }
 
-        $image->save();
+        $gallery->save();
         return redirect()->back();
     }
 
@@ -57,7 +58,7 @@ class ImagesController extends Controller
      */
     public function show($slug)
     {
-      
+
     }
 
     /**
@@ -78,19 +79,19 @@ class ImagesController extends Controller
      * @param  \App\Images  $images
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Images $images)
-    {
-        //
-    }
+    public function update(Request $request, Gallery $images){}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Images  $images
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Images $images)
+
+    public function destroy($id)
     {
-        //
+      $image = Gallery::find($id);
+
+      if(!empty($image->url)) {
+          if(file_exists(public_path('b-images/'. $image->url))){
+              unlink(public_path('b-images/'. $image->url));
+          }
+      }
+      $image->delete();
+      return redirect()->back();
     }
 }

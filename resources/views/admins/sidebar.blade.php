@@ -3,7 +3,7 @@
   <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
   <li><a href="{{route('admin.allpost')}}">All Posts</a></li>
   <li><a href="{{route('admin.allmembers')}}">All Members</a></li>
-  <li><a href="{{route('b-images.index')}}">Image Resources</a></li>
+  <li><a href="{{route('images.index')}}">Image Resources</a></li>
   <v-list-tile href="{{route('psd.create')}}">
     <v-list-tile-action>
       <i class="fa fa-plus"></i>
