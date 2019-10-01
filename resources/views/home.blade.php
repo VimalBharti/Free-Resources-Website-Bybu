@@ -78,6 +78,11 @@
     </v-container>
   </div>
 
+  <div class="byhelp">
+    <a href="http://bybu.tech" target="_blank">
+      <img src="{{asset('images/byhelp.png')}}" alt="Free & Easy to use image to text converter">
+    </a>
+  </div>
 
   <!-- PSD Grids -->
   <!-- <div class="home-psd-list py-5">

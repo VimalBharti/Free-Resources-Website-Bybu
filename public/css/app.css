@@ -10120,6 +10120,12 @@ a {
   border-radius: 4px;
 }
 
+.byhelp {
+  text-align: center;
+  background: #3B0763;
+  padding: 15px 0;
+}
+
 .create-psd {
   background: #f5f5f5;
   min-height: 80vh;
