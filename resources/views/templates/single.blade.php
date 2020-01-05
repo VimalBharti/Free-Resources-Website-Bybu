@@ -49,7 +49,7 @@
                 <v-img src="/images/brands/tailwind.jpg"></v-img>
               </a>
             </template>
-            <span>Tailwind</span>
+            <span>Tailwsind</span>
           </v-tooltip>
         </v-flex>
         <v-flex md4 class="icon">
