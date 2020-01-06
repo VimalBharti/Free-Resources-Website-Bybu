@@ -46,11 +46,6 @@ class TemplateController extends Controller
         $rules = [
           'image'   => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:6000',
           'bootstrap'   => 'required|mimes:zip',
-          'bulma'       => 'required|mimes:zip',
-          'tailwind'    => 'required|mimes:zip',
-          'foundation'  => 'required|mimes:zip',
-          'materialui'  => 'required|mimes:zip',
-          'materialize' => 'required|mimes:zip',
         ];
         $this->validate($request, $rules);
 

@@ -72,44 +72,44 @@
             </div>
 
             <!-- Bulma -->
-            <div class="field mb-3">
+            <!-- <div class="field mb-3">
               <label class="label">Upload Bulma File (zip):</label>
               <div class="file-input">
                 <input type="file" name="bulma">
               </div>
-            </div>
+            </div> -->
 
             <!-- foundation -->
-            <div class="field mb-3">
+            <!-- <div class="field mb-3">
               <label class="label">Upload Foundation File (zip):</label>
               <div class="file-input">
                 <input type="file" name="foundation">
               </div>
-            </div>
+            </div> -->
 
             <!-- Materialize -->
-            <div class="field mb-3">
+            <!-- <div class="field mb-3">
               <label class="label">Upload Materialize File (zip):</label>
               <div class="file-input">
                 <input type="file" name="materialize">
               </div>
-            </div>
+            </div> -->
 
             <!-- Tailwind -->
-            <div class="field mb-3">
+            <!-- <div class="field mb-3">
               <label class="label">Upload Tailwind File (zip):</label>
               <div class="file-input">
                 <input type="file" name="tailwind">
               </div>
-            </div>
+            </div> -->
 
             <!-- MaterialUI -->
-            <div class="field mb-3">
+            <!-- <div class="field mb-3">
               <label class="label">Upload Semantic UI File (zip):</label>
               <div class="file-input">
                 <input type="file" name="materialui">
               </div>
-            </div>
+            </div> -->
 
             <div class="field">
               <div class="control">
