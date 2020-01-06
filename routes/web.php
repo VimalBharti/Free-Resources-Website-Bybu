@@ -34,7 +34,8 @@ Route::resource('/b/images', 'ImagesController');
 // Frameworks for templates
 Route::get('templates/{name}', 'FrameworkController@templateByFramework')->name('framework.template');
 
-// Fre Templates
+// Free Templates
+Route::get('free-templates/preview/{slug}', 'TemplateController@preview')->name('template-preview');
 Route::resource('free-templates', 'TemplateController');
 
 // JSON BOND

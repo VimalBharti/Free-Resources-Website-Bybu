@@ -141,6 +141,12 @@ class TemplateController extends Controller
       return view('templates.single', compact('template', 'frameworks'));
     }
 
+    public function preview($slug)
+    {
+      $template = Template::where('slug', '=', $slug)->first();
+      return view('templates.preview', compact('template'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

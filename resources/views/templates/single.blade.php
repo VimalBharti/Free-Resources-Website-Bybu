@@ -20,69 +20,25 @@
       <h2>{{$template->title}}</h2>
       <p>{{$template->about}}</p>
 
-      <h4>Select Framework to download</h4>
-      <v-layout row wrap>
-        <v-flex md4 class="icon">
-          <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <a href="/storage/templates/bootstrap/{{$template->bootstrap}}" v-on="on">
-                <v-img src="/images/brands/bootstrap.jpg"></v-img>
-              </a>
-            </template>
-            <span>Bootstrap</span>
-          </v-tooltip>
-        </v-flex>
-        <v-flex md4 class="icon">
-          <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <a href="/storage/templates/bulma/{{$template->bulma}}" v-on="on">
-                <v-img src="/images/brands/bulma.jpg"></v-img>
-              </a>
-            </template>
-            <span>Bulma</span>
-          </v-tooltip>
-        </v-flex>
-        <v-flex md4 class="icon">
-          <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <a href="/storage/templates/tailwind/{{$template->tailwind}}" v-on="on">
-                <v-img src="/images/brands/tailwind.jpg"></v-img>
-              </a>
-            </template>
-            <span>Tailwsind</span>
-          </v-tooltip>
-        </v-flex>
-        <v-flex md4 class="icon">
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <a href="/storage/templates/materialize/{{$template->materialize}}" v-on="on">
-                <v-img src="/images/brands/materialize.jpg"></v-img>
-              </a>
-            </template>
-            <span>Materialize</span>
-          </v-tooltip>
-        </v-flex>
-        <v-flex md4 class="icon">
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <a href="/storage/templates/foundation/{{$template->foundation}}" v-on="on">
-                <v-img src="/images/brands/foundation.jpg"></v-img>
-              </a>
-            </template>
-            <span>Zurb Foundation</span>
-          </v-tooltip>
-        </v-flex>
-        <v-flex md4 class="icon">
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <a href="/storage/templates/materialui/{{$template->materialui}}" v-on="on">
-                <v-img src="/images/brands/materialui.jpg"></v-img>
-              </a>
-            </template>
-            <span>Semantic-UI</span>
-          </v-tooltip>
-        </v-flex>
-      </v-layout>
+      <v-btn
+        color="black"
+        block 
+        dark
+        large
+        outlined
+        href="{{route('template-preview', $template->slug)}}"
+      >
+        Preview 
+      </v-btn>
+
+      <v-btn
+        color="#A2316B"
+        block dark
+        large
+        href="/storage/templates/bootstrap/{{$template->bootstrap}}"
+      >
+        Download 
+      </v-btn>
 
     </v-flex>
   </v-layout>
