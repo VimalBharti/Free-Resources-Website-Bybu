@@ -31,7 +31,7 @@
       <v-layout>
         <v-flex>
           <div class="top-psd-content">
-            <div class="display-1 mb-2">Best Free Website Templates</div>
+            <div class="display-1 mb-2">The Best Free Website Templates</div>
             <div class="mb-4 grey--text caption font-weight-bold" style="letter-spacing: 4px;">
               BOOTSTRAP | BULMA | TAILWIND | MATERILIZE | SEMENATICUI | FOUNDATION
             </div>
