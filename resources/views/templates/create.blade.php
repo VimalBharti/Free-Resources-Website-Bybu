@@ -55,12 +55,11 @@
 
             <!-- code -->
             <div class="field my-4">
-              <v-text-field
-                label="Code"
+              <v-textarea
                 name="code"
+                label="Preview Code"
                 value="code"
-                readonly
-              ></v-text-field>
+              ></v-textarea>
             </div>
 
             <!-- Bootstrap -->
