@@ -55,6 +55,12 @@ class TemplateController extends Controller
         $template->templatecat_id = $request->templatecat_id;
         $template->about = $request->about;
         $template->code = $request->code;
+        // file Inputs default value
+        $template->bulma = "bulma";
+        $template->foundation = "foundation";
+        $template->materialize = "materialize";
+        $template->tailwind = "tailwind";
+        $template->materialui = "materialui";
 
         if($request->hasFile('image')){
           $filename = $request->file('image')->getClientOriginalName();
