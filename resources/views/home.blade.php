@@ -31,7 +31,7 @@
       <v-layout>
         <v-flex>
           <div class="top-psd-content">
-            <div class="display-1 mb-2">The Best Free Website Templates</div>
+            <div class="display-1 mb-2">Best Free Website Templates</div>
             <div class="mb-4 grey--text caption font-weight-bold" style="letter-spacing: 4px;">
               BOOTSTRAP | BULMA | TAILWIND | MATERILIZE | SEMENATICUI | FOUNDATION
             </div>
@@ -60,6 +60,17 @@
               <div class="about-psd">
                 {{str_limit($template->about, 120)}}
               </div>
+              <v-chip
+                class="mb-4"
+                color="purple"
+                text-color="purple"
+                small
+                outline
+                label
+              >
+                <i class="fa fa-tag mr-2"></i>
+                {{$template->templatecat->name}}
+              </v-chip>
               <v-btn
                 block large dark round color="purple"
                 href="{{route('free-templates.show', $template->slug)}}" target="_blank"
