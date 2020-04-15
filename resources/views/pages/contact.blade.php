@@ -26,7 +26,7 @@
 
   <section class="is-white contact-page">
     <div class="container">
-      <form action="{{ url('/contact-us') }}" method="POST">
+      <form method="POST">
         {{ csrf_field() }}
         <div class="columns is-centered">
           <div class="column is-half">
